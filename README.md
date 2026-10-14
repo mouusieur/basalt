@@ -1,16 +1,43 @@
 <div align="center">
 
+<a href="https://github.com/mouusieur/basalt/releases/latest"><img src="media/banner.jpg" alt="Basalt — the AI browser that acts" width="880"></a>
+
 # BASALT
 
 **Le navigateur léger, beau et honnête.** · *The light, beautiful and honest browser.*
 
-[**⬇ Télécharger pour Windows / Download for Windows**](https://github.com/mouusieur/basalt/releases/latest)
+### [⬇ Télécharger pour Windows / Download for Windows](https://github.com/mouusieur/basalt/releases/latest)
 
-Windows 10 · 11 (64 bits) — gratuit, sans pub, sans compte · *free, no ads, no account*
+Windows 10 · 11 (64 bits) — gratuit, sans pub, sans compte, sans clé API · *free, no ads, no account, no API key*
 
 [Confidentialité / Privacy](PRIVACY.md) · [FAQ](FAQ.md) · [Signaler un problème / Report a problem](https://github.com/mouusieur/basalt/issues/new)
 
+<br>
+
+<img src="media/trailer.gif" alt="Basalt en action : page d'accueil, puis Flint en mode agent qui cherche et lit pour vous" width="880">
+
+<sub>Vraies captures d'écran de Basalt, sans aucune image générée par IA · <i>Real screen recordings, no AI-generated images</i></sub>
+
 </div>
+
+---
+
+## Aperçu · Preview
+
+<table>
+<tr>
+<td width="50%"><img src="media/03-flint-agent-mode.jpg" alt="Flint agent mode"><br><b>Flint · mode agent</b> — il cherche, clique et lit pour vous, chaque étape est affichée. <i>Agent mode: it searches, clicks and reads for you, every step shown.</i></td>
+<td width="50%"><img src="media/02-flint-ai-copilot.jpg" alt="Flint AI copilot"><br><b>Flint · copilote IA</b> — résumez ou interrogez n'importe quelle page, gratuitement. <i>Ask any page, for free.</i></td>
+</tr>
+<tr>
+<td><img src="media/04-quarry-search.jpg" alt="Quarry search"><br><b>Quarry</b> — moteur de recherche intégré, sans pub, avec résumé IA sourcé. <i>Built-in search, no ads, AI summary with sources.</i></td>
+<td><img src="media/05-quarry-images.jpg" alt="Quarry images"><br><b>Web · Images · Vidéos · Shopping</b> — tout au même endroit. <i>Everything in one place.</i></td>
+</tr>
+<tr>
+<td><img src="media/06-shields-adblock.jpg" alt="Shields ad blocker"><br><b>Shields</b> — pubs et traqueurs bloqués avant de charger. <i>Ads and trackers blocked before they load.</i></td>
+<td><img src="media/07-low-end-pcs.jpg" alt="Made for modest PCs"><br><b>Pour les PC modestes</b> — mise en veille des onglets : jusqu'à −80 % de mémoire. <i>Tab sleeping: up to −80% memory.</i></td>
+</tr>
+</table>
 
 ---
 
