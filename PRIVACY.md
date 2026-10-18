@@ -1,12 +1,12 @@
 # Politique de confidentialité de Basalt
 
-*Dernière mise à jour : 12 octobre 2026. S'applique à Basalt 1.4.1 et versions suivantes.*
+*Dernière mise à jour : 18 octobre 2026. Basalt 1.5.0 et versions suivantes.*
 
-**En une phrase :** Basalt n'a pas de compte, pas de serveur qui collecte vos données, pas de publicité et pas de mouchard. Vos données restent sur votre PC. Les seules choses qui en sortent sont celles qu'il faut pour faire ce que vous demandez, et elles sont toutes listées ici.
+**En une phrase :** Basalt ne vous suit pas par défaut : pas de publicité, pas de compte obligatoire et aucune synchronisation de vos données personnelles. Un compteur communautaire facultatif, désactivé par défaut, n’envoie un identifiant aléatoire pseudonyme qu’après votre accord explicite. Vos données de navigation restent sur votre PC.
 
 ## Ce que nous ne faisons jamais
 
-- **Aucune télémétrie, aucune statistique d'usage**, aucun identifiant d'appareil ou de personne.
+- **Aucune télémétrie sans consentement.** Le compteur communautaire est facultatif et désactivé par défaut; il n’envoie jamais de données de navigation.
 - **Aucune publicité**, aucune revente ni aucun partage de données à des fins commerciales.
 - **Aucun compte obligatoire.** Les « comptes » de Basalt sont des profils locaux, qui ne quittent jamais votre PC.
 - **Aucune synchronisation dans le cloud.** Basalt Labs ne reçoit ni votre historique, ni vos favoris, ni vos mots de passe, ni vos conversations avec Flint.
@@ -16,6 +16,7 @@
 Tout est rangé dans `%APPDATA%\Basalt`, sur votre ordinateur uniquement :
 
 - historique, favoris, onglets ouverts, téléchargements, réglages ;
+- pour le compteur facultatif : votre choix de consentement et un identifiant aléatoire pseudonyme, conservé localement tant que vous participez et effacé au retrait ;
 - **mots de passe** : dans un coffre chiffré (AES-256-GCM), qui n'existe que pour un compte protégé par un mot de passe. La clé est elle-même protégée par Windows (DPAPI) : le fichier copié sur un autre PC est inutilisable ;
 - **étagère Flint** : les images et textes que vous gardez ;
 - **rapports de plantage** en attente (voir plus bas), jamais envoyés sans votre accord.
@@ -25,6 +26,14 @@ Les **conversations avec Flint ne sont pas enregistrées** : elles disparaissent
 Pour tout effacer : *Réglages → Shields & vie privée → Effacer les données de navigation*. Au moment de la désinstallation, Basalt vous propose aussi de supprimer ce dossier.
 
 ## Ce qui sort de votre PC, et pourquoi
+
+### Compteur communautaire (facultatif)
+
+Le compteur est désactivé par défaut. Son service est déployé, mais aucune requête n’est envoyée tant que vous ne l’activez pas explicitement dans la fenêtre « Nouveautés » ou dans *Réglages → Shields & vie privée*; avec le réglage par défaut, aucun identifiant n’est créé.
+
+Si vous l’activez, Basalt crée un identifiant aléatoire de 256 bits et envoie cet identifiant toutes les 2 minutes pendant l’utilisation de l’application. Il n’envoie **aucune URL, aucun nom de site, onglet, historique, nom ou identifiant matériel**. La base Cloudflare D1 ne conserve que l’empreinte HMAC de cet identifiant et les heures de première et dernière présence. Le total compte les profils Basalt participants vus dans les 90 derniers jours; « en ligne » signifie une présence dans les 5 dernières minutes. Ce sont des profils, pas des personnes.
+
+La requête HTTPS passe par Cloudflare : son infrastructure reçoit votre adresse IP comme pour toute connexion web. Pour limiter les abus, le Worker utilise cette IP comme clé temporaire de limitation par route (60 requêtes par minute et par point de présence Cloudflare); il ne l’écrit pas dans D1. L’application ne place pas l’IP dans le corps de la requête; Cloudflare peut traiter les métadonnées de connexion et de limitation selon ses propres règles. Le compteur porte sur les profils Basalt participants, pas sur les personnes ni les installations Windows : chaque profil a son propre consentement et son propre ID; plusieurs profils d’une même installation peuvent donc compter séparément. Vous pouvez retirer votre accord à tout moment dans les réglages. Basalt efface alors l’identifiant local et demande la suppression de son empreinte; si la demande ne peut pas aboutir, l’entrée expire automatiquement au plus tard 90 jours après le dernier signal.
 
 ### 1. Les sites que vous visitez
 Comme avec n'importe quel navigateur, les sites reçoivent votre adresse IP et les informations techniques habituelles. **Basalt Shields** bloque par défaut les publicités et les traqueurs, avec les listes open source du projet Ghostery, mises à jour automatiquement depuis leur serveur. Vous pouvez aussi demander aux sites de ne pas vous suivre (« Do Not Track » / GPC).
@@ -50,6 +59,8 @@ Flint utilise des modèles d'IA **gratuits et sans compte**, hébergés par des 
 
 **Où ça part :** Kilo (kilo.ai), LLM7 (llm7.io), OVHcloud AI Endpoints (France) et AI Horde (aihorde.net). Basalt choisit automatiquement le modèle selon la tâche. Ces services voient votre adresse IP. **AI Horde est un réseau de bénévoles** : vos demandes y sont traitées par des ordinateurs de particuliers.
 
+**Créer une image ou une vidéo :** le prompt (éventuellement reformulé par Flint avec un modèle texte), le style et le format sont envoyés au service de génération choisi. Sans configuration, les images utilisent FLUX sur un Space Hugging Face, AI Horde ou Pollinations selon la route et la disponibilité. AI Horde peut confier le prompt à des ordinateurs de bénévoles; Pollinations reçoit le prompt dans l’URL de la requête. Ces services voient votre IP. Si vous ajoutez une clé Cloudflare ou Agnes dans *Réglages → Flint*, Basalt peut aussi envoyer le prompt au fournisseur correspondant; la clé sert à authentifier la requête et n’est pas envoyée à Basalt. Elle reste dans votre profil local (chiffré si votre compte Basalt est protégé par mot de passe). **La vidéo passe par Agnes et nécessite sa clé**; sans clé, aucune demande vidéo n’est envoyée.
+
 **Notre conseil :** ne confiez pas à Flint de mots de passe, de numéros de carte bancaire ou d'informations médicales. Flint refuse de taper un mot de passe, et l'agent vous demande votre accord avant les actions sensibles : achat, envoi d'un fichier, lecture du presse-papiers quand la tâche ne le concerne pas.
 
 ### 5. Les mises à jour
@@ -66,10 +77,10 @@ Un rapport contient : votre description, la catégorie choisie, et, si vous lais
 L'envoi passe par le service FormSubmit (formsubmit.co), qui transmet le rapport à la boîte mail de l'équipe. Vous pouvez aussi l'envoyer avec votre propre messagerie ou sur GitHub.
 
 ## Enfants
-Basalt ne collecte aucune donnée personnelle, d'enfants ou d'adultes. Le contenu du web n'est pas filtré : la supervision d'un adulte est conseillée pour les plus jeunes.
+Basalt ne demande pas de données personnelles aux utilisateurs, enfants ou adultes. Le compteur facultatif est pseudonyme et désactivé par défaut; si vous l’activez, Cloudflare traite votre adresse IP lors de la connexion. Le contenu du web n'est pas filtré : la supervision d'un adulte est conseillée pour les plus jeunes.
 
 ## Vos droits
-Comme nous ne détenons aucune donnée vous concernant, il n'y a rien à consulter ni à supprimer chez nous. Si vous nous avez écrit (rapport ou e-mail), demandez-nous la suppression de ce message à tout moment.
+Vous pouvez retirer le consentement au compteur dans les réglages; Basalt demande alors l’effacement de l’empreinte stockée. En cas d’échec réseau, elle expire après 90 jours sans présence. Si vous nous avez écrit (rapport ou e-mail), demandez-nous la suppression de ce message à tout moment.
 
 ## Contact
 Basalt Labs — **mouusieur@gmail.com**
@@ -80,13 +91,13 @@ Si cette politique change, la nouvelle version sera publiée avec la mise à jou
 
 # Basalt Privacy Policy
 
-*Last updated: October 12, 2026. Applies to Basalt 1.4.1 and later.*
+*Last updated: October 18, 2026. Basalt 1.5.0 and later.*
 
-**In one sentence:** Basalt has no account, no server collecting your data, no ads and no tracker. Your data stays on your PC. The only things that leave it are what's needed to do what you ask, and they are all listed here.
+**In one sentence:** Basalt does not track you by default: no ads, no mandatory account and no sync of your personal data. The optional community counter, off by default, sends a random pseudonymous ID only after your explicit consent. Your browsing data stays on your PC.
 
 ## What we never do
 
-- **No telemetry, no usage statistics**, no device or personal identifier.
+- **No telemetry without consent.** The community counter is optional and off by default; it never sends browsing data.
 - **No advertising**, no selling or sharing of data for commercial purposes.
 - **No mandatory account.** Basalt "accounts" are local profiles that never leave your PC.
 - **No cloud sync.** Basalt Labs never receives your history, bookmarks, passwords or Flint conversations.
@@ -96,6 +107,7 @@ Si cette politique change, la nouvelle version sera publiée avec la mise à jou
 Everything lives in `%APPDATA%\Basalt`, on your computer only:
 
 - history, bookmarks, open tabs, downloads, settings;
+- for the optional counter: your consent choice and a random pseudonymous ID, stored locally while you participate and erased when you opt out;
 - **passwords**: in an encrypted vault (AES-256-GCM) that only exists for a password-protected account. The key is itself protected by Windows (DPAPI), so the file is useless if copied to another PC;
 - **Flint shelf**: the images and texts you keep;
 - pending **crash reports** (see below), never sent without your consent.
@@ -105,6 +117,14 @@ Everything lives in `%APPDATA%\Basalt`, on your computer only:
 To erase everything: *Settings → Shields & privacy → Clear browsing data*. When you uninstall, Basalt also offers to delete this folder.
 
 ## What leaves your PC, and why
+
+### Community counter (optional)
+
+The counter is off by default. Its service is deployed, but no request is sent unless you explicitly enable it in the “What’s New” popup or *Settings → Shields & privacy*; with the default setting, no ID is created.
+
+If you enable it, Basalt creates a random 256-bit ID and sends it every 2 minutes while the app is in use. It sends **no URLs, site names, tabs, history, names or hardware IDs**. The Cloudflare D1 database stores only an HMAC hash of that ID and first/last-seen timestamps. The total counts participating Basalt profiles seen in the last 90 days; “online” means a presence signal in the last 5 minutes. These are profiles, not people.
+
+The HTTPS request goes through Cloudflare: its infrastructure receives your IP address as with any web connection. To limit abuse, the Worker uses that IP as a temporary per-route rate-limit key (60 requests per minute per Cloudflare location); it does not write the IP to D1. The app does not put the IP in the request body; Cloudflare may process connection and rate-limiting metadata under its own rules. The counter is for participating Basalt profiles, not people or Windows installations: each profile has its own consent and ID, so multiple profiles in one installation may count separately. You can withdraw consent at any time in Settings. Basalt then erases the local ID and requests deletion of its hash; if the request cannot be completed, the entry expires automatically no later than 90 days after the last signal.
 
 ### 1. The sites you visit
 As with any browser, websites receive your IP address and the usual technical information. **Basalt Shields** blocks ads and trackers by default, using the open-source lists from the Ghostery project, updated automatically from their server. You can also ask sites not to track you (Do Not Track / GPC).
@@ -130,6 +150,8 @@ Flint uses **free AI models that need no account**, hosted by outside services. 
 
 **Where it goes:** Kilo (kilo.ai), LLM7 (llm7.io), OVHcloud AI Endpoints (France) and AI Horde (aihorde.net). Basalt picks the model automatically depending on the task. These services see your IP address. **AI Horde is a volunteer network**: your requests are processed on private individuals' computers.
 
+**Creating an image or video:** the prompt (which Flint may first rewrite with a text model), style and format are sent to the selected generation service. Without extra setup, images use FLUX on a Hugging Face Space, AI Horde or Pollinations, depending on your route and availability. AI Horde may send the prompt to volunteer computers; Pollinations receives the prompt in the request URL. These services see your IP. If you add a Cloudflare or Agnes key in *Settings → Flint*, Basalt may also send the prompt to that provider; the key authenticates the request and is not sent to Basalt. It stays in your local profile (encrypted when your Basalt account is password-protected). **Video goes through Agnes and requires its key**; without a key, no video request is sent.
+
 **Our advice:** don't give Flint passwords, card numbers or medical information. Flint refuses to type passwords, and the agent asks for your consent before sensitive actions: purchases, uploading a file, reading your clipboard when the task isn't about it.
 
 ### 5. Updates
@@ -146,10 +168,10 @@ A report contains: your description, the category you chose, and, if you leave t
 Reports are sent through the FormSubmit service (formsubmit.co), which forwards them to the team's mailbox. You can also send them with your own email app or on GitHub.
 
 ## Children
-Basalt collects no personal data from children or adults. Web content isn't filtered: adult supervision is recommended for young children.
+Basalt does not ask users, children or adults, for personal information. The optional counter is pseudonymous and off by default; if you enable it, Cloudflare processes your IP address when the connection is made. Web content isn't filtered: adult supervision is recommended for young children.
 
 ## Your rights
-Since we hold no data about you, there is nothing to view or delete on our side. If you wrote to us (report or email), you can ask us to delete that message at any time.
+You can withdraw counter consent in Settings; Basalt then requests deletion of the stored hash. If the network request fails, it expires after 90 days without a presence signal. If you wrote to us (report or email), you can ask us to delete that message at any time.
 
 ## Contact
 Basalt Labs — **mouusieur@gmail.com**
