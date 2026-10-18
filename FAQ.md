@@ -47,6 +47,9 @@ Pas pour l'instant. Basalt intègre déjà l'essentiel : bloqueur de publicités
 - **Ctrl Maj S** : écran partagé
 - **F1** : cette aide
 
+### Basalt envoie-t-il des statistiques ?
+Non par défaut. Le compteur communautaire est facultatif et désactivé par défaut. Si vous l’activez, il envoie un identifiant aléatoire et un signal toutes les 2 minutes, jamais votre navigation. Cloudflare reçoit votre IP pour la connexion et le Worker l’utilise temporairement pour limiter les abus; elle n’est pas écrite dans D1. Vous pouvez désactiver le compteur et demander l’effacement à tout moment. Il compte des profils participants, pas des personnes; plusieurs profils d’une même installation peuvent chacun compter une fois. [Détails dans la politique de confidentialité](#privacy).
+
 ## Quarry, le moteur de recherche
 
 ### Qu'est-ce que Quarry ?
@@ -58,7 +61,7 @@ Oui : *Réglages → Recherche · Quarry*. Vous pouvez choisir un autre moteur p
 ## Flint, l'assistant IA
 
 ### Faut-il une clé, un compte ou un abonnement ?
-Non, rien de tout ça. Flint utilise des modèles d'IA gratuits et choisit automatiquement le plus adapté : rapide pour une question simple, le plus puissant pour une grosse tâche, un spécialiste pour le code.
+Pour le chat et le mode agent, non : Flint choisit automatiquement des modèles gratuits accessibles sans clé (rapide pour une question simple, plus puissant pour une grosse tâche, spécialiste pour le code). La génération d’images de base fonctionne aussi sans clé. Les clés Cloudflare/Agnes sont facultatives pour des services d’image supplémentaires; la vidéo Agnes nécessite une clé. Détails dans *Confidentialité*.
 
 ### Pourquoi Flint est-il parfois lent, ou dit que les modèles sont occupés ?
 Les modèles gratuits sont partagés entre beaucoup d'utilisateurs et ont des quotas. Flint passe automatiquement à un autre modèle quand l'un est saturé. Si tous le sont, réessayez une minute plus tard.
@@ -131,6 +134,9 @@ Not yet. Basalt already includes the essentials: ad and tracker blocker, passwor
 - **Ctrl Shift S**: split view
 - **F1**: this help
 
+### Does Basalt send usage statistics?
+Not by default. The community counter is optional and off by default. If you opt in, it sends a random ID and a presence signal every 2 minutes, never your browsing data. Cloudflare receives your IP for the connection and the Worker uses it temporarily to limit abuse; it is not written to D1. You can turn the counter off and request deletion at any time. It counts participating profiles, not people; multiple profiles in one installation may each count once. [See the privacy policy](#privacy).
+
 ## Quarry, the search engine
 
 ### What is Quarry?
@@ -142,7 +148,7 @@ Yes: *Settings → Search · Quarry*. You can choose another default search engi
 ## Flint, the AI assistant
 
 ### Do I need a key, an account or a subscription?
-No, none of them. Flint uses free AI models and automatically picks the best fit: a fast one for a simple question, the most powerful for a big task, a specialist for code.
+For chat and agent mode, no: Flint automatically chooses free models that need no key (fast for a simple question, more powerful for a big task, a specialist for code). Basic image generation also works without a key. Cloudflare/Agnes keys are optional for extra image services; Agnes video requires a key. See *Privacy* for details.
 
 ### Why is Flint sometimes slow, or says models are busy?
 Free models are shared by many users and have quotas. Flint automatically switches to another model when one is overloaded. If they all are, try again a minute later.
