@@ -51,6 +51,7 @@ Basalt est un navigateur pour Windows inspiré du design Nothing (typographie à
 - **Flint** : assistant IA gratuit, **sans clé ni compte**. Il résume une page, répond à vos questions, décrit une image… En **mode agent**, il agit dans un onglet pour vous : chercher, cliquer, garder et copier des images, résumer une vidéo avec ses moments clés.
 - **Pour les développeurs** : panneau développeur, écran partagé, onglets verticaux, palette de commandes (Ctrl K).
 - **Sécurité** : coffre de mots de passe chiffré, comptes protégés (double authentification), mises à jour signées.
+- **Extensions Basalt** : petite bibliothèque de modules vérifiés, à activer au choix; aucune installation arbitraire du Chrome Web Store. Les modules ne tournent pas en fenêtre privée; aucun VPN n’est actuellement proposé.
 - **Vie privée par défaut** : aucune télémétrie sans consentement, pas de compte obligatoire ni de synchronisation cloud. Le compteur communautaire est facultatif et désactivé par défaut. [Tout est expliqué ici](PRIVACY.md).
 
 **Installation :** téléchargez `Basalt-Setup-x.y.z.exe` depuis la [dernière version](https://github.com/mouusieur/basalt/releases/latest) et lancez-le. Aucun droit administrateur n'est nécessaire. Si Windows affiche « Windows a protégé votre ordinateur », cliquez sur **Informations complémentaires → Exécuter quand même** ([pourquoi ?](FAQ.md)).
@@ -65,6 +66,7 @@ Basalt is a Windows browser inspired by Nothing's design (dot-matrix type, deep 
 - **Flint**: free AI assistant, **no key and no account**. It summarizes a page, answers your questions, describes an image… In **agent mode**, it acts in a tab for you: search, click, keep and copy images, summarize a video with its key moments.
 - **For developers**: developer panel, split view, vertical tabs, command palette (Ctrl K).
 - **Security**: encrypted password vault, protected accounts (two-factor), signed updates.
+- **Basalt Extensions**: a small, vetted add-on library you can opt into; no arbitrary Chrome Web Store installs. Add-ons do not run in private windows; no VPN add-on is currently offered.
 - **Privacy by default**: no telemetry without consent, no mandatory account or cloud sync. The community counter is optional and off by default. [Everything is explained here](PRIVACY.md).
 
 **Install:** download `Basalt-Setup-x.y.z.exe` from the [latest release](https://github.com/mouusieur/basalt/releases/latest) and run it. No administrator rights needed. If Windows says "Windows protected your PC", click **More info → Run anyway** ([why?](FAQ.md)).
