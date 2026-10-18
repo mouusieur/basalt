@@ -27,13 +27,20 @@ Pour tout effacer : *Réglages → Shields & vie privée → Effacer les donnée
 
 ## Ce qui sort de votre PC, et pourquoi
 
+### Extensions Basalt (facultatives)
+La bibliothèque n’accepte que des modules intégrés, sélectionnés et testés par Basalt; elle n’installe pas les extensions arbitraires du Chrome Web Store. Avant l’installation, une fiche indique les accès demandés. Le choix activé/désactivé est enregistré localement pour le profil et ne prend effet qu’au prochain démarrage. Les modules ne s’exécutent pas dans les fenêtres privées.
+
+Les modules actuellement proposés accèdent au contenu des pages **HTTP et HTTPS** ouvertes : **Liens propres** retire certains paramètres de suivi des liens et peut nettoyer l’adresse affichée; **Vitesse vidéo** détecte les éléments vidéo HTML et règle leur vitesse de lecture. Pour une adresse déjà ouverte, les paramètres de sa requête initiale ont pu être transmis au site avant le nettoyage. Le code de ces deux modules n’enregistre ni n’envoie de données et ne fait aucune requête réseau; seul le réglage d’activation est conservé dans le profil Basalt.
+
+Aucun module VPN n’est proposé. L’extension officielle Proton VPN ne passe pas les tests proxy du runtime Electron actuel. De façon générale, une extension VPN de navigateur compatible ne protégerait que le trafic de Basalt, et non les autres applications du PC.
+
 ### Compteur communautaire (facultatif)
 
-Le compteur est désactivé par défaut. Son service est déployé, mais aucune requête n’est envoyée tant que vous ne l’activez pas explicitement dans la fenêtre « Nouveautés » ou dans *Réglages → Shields & vie privée*; avec le réglage par défaut, aucun identifiant n’est créé.
+Le compteur est désactivé par défaut et le service Cloudflare/D1 est déployé. Basalt ne crée aucun identifiant et n’envoie aucune requête avant votre consentement explicite et la réception d’un endpoint HTTPS signé. Si l’écran affiche « Compteur non configuré », aucune donnée n’est envoyée. Lorsque le compteur est configuré, vous pouvez donner votre accord dans la fenêtre « Nouveautés » ou dans *Réglages → Shields & vie privée*.
 
 Si vous l’activez, Basalt crée un identifiant aléatoire de 256 bits et envoie cet identifiant toutes les 2 minutes pendant l’utilisation de l’application. Il n’envoie **aucune URL, aucun nom de site, onglet, historique, nom ou identifiant matériel**. La base Cloudflare D1 ne conserve que l’empreinte HMAC de cet identifiant et les heures de première et dernière présence. Le total compte les profils Basalt participants vus dans les 90 derniers jours; « en ligne » signifie une présence dans les 5 dernières minutes. Ce sont des profils, pas des personnes.
 
-La requête HTTPS passe par Cloudflare : son infrastructure reçoit votre adresse IP comme pour toute connexion web. Pour limiter les abus, le Worker utilise cette IP comme clé temporaire de limitation par route (60 requêtes par minute et par point de présence Cloudflare); il ne l’écrit pas dans D1. L’application ne place pas l’IP dans le corps de la requête; Cloudflare peut traiter les métadonnées de connexion et de limitation selon ses propres règles. Le compteur porte sur les profils Basalt participants, pas sur les personnes ni les installations Windows : chaque profil a son propre consentement et son propre ID; plusieurs profils d’une même installation peuvent donc compter séparément. Vous pouvez retirer votre accord à tout moment dans les réglages. Basalt efface alors l’identifiant local et demande la suppression de son empreinte; si la demande ne peut pas aboutir, l’entrée expire automatiquement au plus tard 90 jours après le dernier signal.
+La requête HTTPS passe par Cloudflare : son infrastructure reçoit votre adresse IP comme pour toute connexion web. L’application ne place pas l’IP dans le corps de la requête et le Worker ne l’enregistre pas dans la base; Cloudflare peut traiter des métadonnées de connexion selon ses propres règles. Le compteur porte sur les profils Basalt participants, pas sur les personnes ni les installations Windows : chaque profil a son propre consentement et son propre ID; plusieurs profils d’une même installation peuvent donc compter séparément. Vous pouvez retirer votre accord à tout moment dans les réglages. Basalt efface alors l’identifiant local et demande la suppression de son empreinte; si la demande ne peut pas aboutir, l’entrée expire automatiquement au plus tard 90 jours après le dernier signal.
 
 ### 1. Les sites que vous visitez
 Comme avec n'importe quel navigateur, les sites reçoivent votre adresse IP et les informations techniques habituelles. **Basalt Shields** bloque par défaut les publicités et les traqueurs, avec les listes open source du projet Ghostery, mises à jour automatiquement depuis leur serveur. Vous pouvez aussi demander aux sites de ne pas vous suivre (« Do Not Track » / GPC).
@@ -118,13 +125,20 @@ To erase everything: *Settings → Shields & privacy → Clear browsing data*. W
 
 ## What leaves your PC, and why
 
+### Basalt Extensions (optional)
+The library accepts only add-ons bundled with, selected and tested by Basalt; it does not install arbitrary Chrome Web Store extensions. Each card shows the requested access before installation. The on/off choice is stored locally for the profile and takes effect only after the next restart. Add-ons do not run in private windows.
+
+The current add-ons access the content of open **HTTP and HTTPS** pages: **Clean Links** removes some tracking parameters from links and may clean the displayed address; **Video Speed** detects HTML video elements and changes their playback speed. For an address that is already open, its initial request parameters may have reached the site before cleanup. The code for these two add-ons does not store or send data and makes no network requests; only the activation setting is stored in the Basalt profile.
+
+No VPN add-on is offered. Proton VPN’s official extension fails proxy tests in the current Electron runtime. In general, even a compatible browser VPN extension would protect only Basalt traffic, not other applications on the PC.
+
 ### Community counter (optional)
 
-The counter is off by default. Its service is deployed, but no request is sent unless you explicitly enable it in the “What’s New” popup or *Settings → Shields & privacy*; with the default setting, no ID is created.
+The counter is off by default and the Cloudflare/D1 service is deployed. Basalt creates no ID and sends no request before your explicit consent and receipt of a signed HTTPS endpoint. If the app says “Counter not configured,” no data is sent. Once configured, you can opt in from the “What’s New” popup or *Settings → Shields & privacy*.
 
 If you enable it, Basalt creates a random 256-bit ID and sends it every 2 minutes while the app is in use. It sends **no URLs, site names, tabs, history, names or hardware IDs**. The Cloudflare D1 database stores only an HMAC hash of that ID and first/last-seen timestamps. The total counts participating Basalt profiles seen in the last 90 days; “online” means a presence signal in the last 5 minutes. These are profiles, not people.
 
-The HTTPS request goes through Cloudflare: its infrastructure receives your IP address as with any web connection. To limit abuse, the Worker uses that IP as a temporary per-route rate-limit key (60 requests per minute per Cloudflare location); it does not write the IP to D1. The app does not put the IP in the request body; Cloudflare may process connection and rate-limiting metadata under its own rules. The counter is for participating Basalt profiles, not people or Windows installations: each profile has its own consent and ID, so multiple profiles in one installation may count separately. You can withdraw consent at any time in Settings. Basalt then erases the local ID and requests deletion of its hash; if the request cannot be completed, the entry expires automatically no later than 90 days after the last signal.
+The HTTPS request goes through Cloudflare: its infrastructure receives your IP address as with any web connection. The app does not put the IP in the request body, and the Worker does not save it to the database; Cloudflare may process connection metadata under its own rules. The counter is for participating Basalt profiles, not people or Windows installations: each profile has its own consent and ID, so multiple profiles in one installation may count separately. You can withdraw consent at any time in Settings. Basalt then erases the local ID and requests deletion of its hash; if the request cannot be completed, the entry expires automatically no later than 90 days after the last signal.
 
 ### 1. The sites you visit
 As with any browser, websites receive your IP address and the usual technical information. **Basalt Shields** blocks ads and trackers by default, using the open-source lists from the Ghostery project, updated automatically from their server. You can also ask sites not to track you (Do Not Track / GPC).
