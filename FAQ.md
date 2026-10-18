@@ -38,7 +38,10 @@ Basalt contourne ce blocage automatiquement. Si le message apparaît quand même
 Le gestionnaire de mots de passe nécessite un **compte protégé par mot de passe** (*Réglages → Comptes · sécurité*). Les mots de passe sont alors chiffrés sur votre PC et ne sont jamais envoyés nulle part. Un bilan de santé repère les mots de passe faibles, réutilisés ou apparus dans des fuites.
 
 ### Puis-je installer des extensions Chrome ?
-Pas pour l'instant. Basalt intègre déjà l'essentiel : bloqueur de publicités et de traqueurs, gestionnaire de mots de passe, mode lecture, capture d'écran, écran partagé, onglets verticaux, panneau développeur et Flint.
+Pas des extensions arbitraires du Chrome Web Store. Basalt propose une petite bibliothèque de modules développés et testés par l’équipe : *Réglages → Extensions Basalt*. Elle comprend **Liens propres** (nettoie certains paramètres de suivi) et **Vitesse vidéo** (règle la vitesse des vidéos HTML). Chaque fiche affiche l’accès demandé et les informations de confidentialité avant l’installation. L’activation est facultative, enregistrée pour le profil et appliquée au prochain démarrage. Les modules ne tournent pas dans les fenêtres privées.
+
+### Basalt propose-t-il un VPN ?
+Pas actuellement. L’extension officielle Proton VPN ne passe pas les tests proxy du runtime Electron utilisé par Basalt; elle n’est donc pas proposée. Même si une extension VPN de navigateur devenait compatible, elle ne protégerait que le trafic de Basalt, pas les autres applications du PC. Pour protéger tout le PC, il faut un VPN système.
 
 ### Quels raccourcis connaître ?
 - **Ctrl K** : palette de commandes (tout est accessible au clavier)
@@ -48,7 +51,7 @@ Pas pour l'instant. Basalt intègre déjà l'essentiel : bloqueur de publicités
 - **F1** : cette aide
 
 ### Basalt envoie-t-il des statistiques ?
-Non par défaut. Le compteur communautaire est facultatif et désactivé par défaut. Si vous l’activez, il envoie un identifiant aléatoire et un signal toutes les 2 minutes, jamais votre navigation. Cloudflare reçoit votre IP pour la connexion et le Worker l’utilise temporairement pour limiter les abus; elle n’est pas écrite dans D1. Vous pouvez désactiver le compteur et demander l’effacement à tout moment. Il compte des profils participants, pas des personnes; plusieurs profils d’une même installation peuvent chacun compter une fois. [Détails dans la politique de confidentialité](#privacy).
+Non. Le compteur communautaire est facultatif et désactivé par défaut. Si vous l’activez dans *Réglages → Shields & vie privée*, Basalt envoie un identifiant aléatoire et un signal toutes les 2 minutes, jamais votre navigation. Le service Cloudflare/D1 est déployé, mais l’application doit avoir reçu son endpoint signé : si elle affiche « Compteur non configuré », aucun identifiant ni aucune requête ne part. Une fois configuré et activé par vous, Cloudflare reçoit votre IP pour la connexion et la base conserve une empreinte HMAC de l’identifiant, pas l’identifiant brut. Vous pouvez retirer votre accord à tout moment; Basalt efface l’ID local et demande la suppression distante. Il compte des profils participants, pas des personnes : plusieurs profils d’une même installation peuvent chacun compter une fois. [Détails dans la politique de confidentialité](#privacy).
 
 ## Quarry, le moteur de recherche
 
@@ -125,7 +128,10 @@ Basalt works around this block automatically. If you still see the message, clos
 The password manager needs a **password-protected account** (*Settings → Accounts · security*). Your passwords are then encrypted on your PC and never sent anywhere. A health check finds weak, reused or leaked passwords.
 
 ### Can I install Chrome extensions?
-Not yet. Basalt already includes the essentials: ad and tracker blocker, password manager, reader mode, screenshots, split view, vertical tabs, developer panel and Flint.
+Not arbitrary items from the Chrome Web Store. Basalt offers a small library of add-ons developed and tested by the Basalt team: *Settings → Basalt Extensions*. It currently includes **Clean Links** (cleans some tracking parameters) and **Video Speed** (adjusts HTML video playback). Each card explains its access and privacy before installation. Activation is optional, stored for the profile and applied after the next restart. Add-ons do not run in private windows.
+
+### Does Basalt offer a VPN?
+Not currently. Proton VPN’s official browser extension fails the proxy tests in Basalt’s current Electron runtime, so it is not offered. Even if a browser VPN extension becomes compatible, it would protect only Basalt traffic—not other apps on your PC. Protecting the whole PC requires a system VPN.
 
 ### Which shortcuts should I know?
 - **Ctrl K**: command palette (everything is reachable from the keyboard)
@@ -135,7 +141,7 @@ Not yet. Basalt already includes the essentials: ad and tracker blocker, passwor
 - **F1**: this help
 
 ### Does Basalt send usage statistics?
-Not by default. The community counter is optional and off by default. If you opt in, it sends a random ID and a presence signal every 2 minutes, never your browsing data. Cloudflare receives your IP for the connection and the Worker uses it temporarily to limit abuse; it is not written to D1. You can turn the counter off and request deletion at any time. It counts participating profiles, not people; multiple profiles in one installation may each count once. [See the privacy policy](#privacy).
+No. The community counter is optional and off by default. If you enable it in *Settings → Shields & privacy*, Basalt sends a random ID and a presence signal every 2 minutes, never your browsing data. The Cloudflare/D1 service is deployed, but the app must receive its signed endpoint configuration: if it says “Counter not configured,” no ID or request is sent. Once configured and enabled by you, Cloudflare receives your IP for the connection and the database stores an HMAC hash of the ID—not the raw ID. You can withdraw consent at any time; Basalt erases the local ID and requests remote deletion. It counts participating profiles, not people, so multiple profiles in one installation may each count once. [See the privacy policy](#privacy).
 
 ## Quarry, the search engine
 
