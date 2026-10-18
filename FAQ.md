@@ -48,7 +48,7 @@ Pas pour l'instant. Basalt intègre déjà l'essentiel : bloqueur de publicités
 - **F1** : cette aide
 
 ### Basalt envoie-t-il des statistiques ?
-Non par défaut. Le compteur communautaire est facultatif et désactivé par défaut. Si vous l’activez, il envoie un identifiant aléatoire et un signal toutes les 2 minutes, jamais votre navigation. Cloudflare reçoit votre IP pour la connexion et le Worker l’utilise temporairement pour limiter les abus; elle n’est pas écrite dans D1. Vous pouvez désactiver le compteur et demander l’effacement à tout moment. Il compte des profils participants, pas des personnes; plusieurs profils d’une même installation peuvent chacun compter une fois. [Détails dans la politique de confidentialité](#privacy).
+Non par défaut. Le compteur communautaire est facultatif et n’est pas encore disponible dans cette candidate : le service n’est pas déployé. Une fois disponible, si vous l’activez, il enverra un identifiant aléatoire et un signal toutes les 2 minutes, jamais votre navigation. Cloudflare reçoit votre IP pour la connexion; vous pouvez désactiver le compteur et demander l’effacement à tout moment. Il compte des profils participants, pas des personnes; plusieurs profils d’une même installation peuvent chacun compter une fois. [Détails dans la politique de confidentialité](#privacy).
 
 ## Quarry, le moteur de recherche
 
@@ -135,7 +135,7 @@ Not yet. Basalt already includes the essentials: ad and tracker blocker, passwor
 - **F1**: this help
 
 ### Does Basalt send usage statistics?
-Not by default. The community counter is optional and off by default. If you opt in, it sends a random ID and a presence signal every 2 minutes, never your browsing data. Cloudflare receives your IP for the connection and the Worker uses it temporarily to limit abuse; it is not written to D1. You can turn the counter off and request deletion at any time. It counts participating profiles, not people; multiple profiles in one installation may each count once. [See the privacy policy](#privacy).
+Not by default. The community counter is optional and is not available in this candidate because its service has not been deployed. Once available, if you opt in, it will send a random ID and a presence signal every 2 minutes, never your browsing data. Cloudflare receives your IP for the connection; you can turn the counter off and request deletion at any time. It counts participating profiles, not people; multiple profiles in one installation may each count once. [See the privacy policy](#privacy).
 
 ## Quarry, the search engine
 
