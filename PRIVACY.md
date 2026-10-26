@@ -1,6 +1,6 @@
 # Politique de confidentialité de Basalt
 
-*Dernière mise à jour : 18 octobre 2026. Basalt 1.5.0 et versions suivantes.*
+*Dernière mise à jour : 25 octobre 2026. Basalt 1.7.1 et versions suivantes.*
 
 **En une phrase :** Basalt ne vous suit pas par défaut : pas de publicité, pas de compte obligatoire et aucune synchronisation de vos données personnelles. Un compteur communautaire facultatif, désactivé par défaut, n’envoie un identifiant aléatoire pseudonyme qu’après votre accord explicite. Vos données de navigation restent sur votre PC.
 
@@ -66,7 +66,7 @@ Flint envoie les requêtes directement à des services externes gratuits; Basalt
 
 **Chat :** AI Horde (aihorde.net) est le seul fournisseur texte intégré. C’est un réseau de bénévoles à faible priorité; le contenu peut être traité et vu sur leurs ordinateurs. Les requêtes sont anonymisées avant dispatch, mais ne partagez aucune donnée confidentielle. Kilo Gateway n’est pas utilisé : un essai sur un modèle gratuit a renvoyé une erreur amont contenant un lien OpenRouter, et le service ne fournit pas de garantie vérifiable par requête excluant ce chemin. OpenRouter, LLM7 et les modèles texte OVHcloud à prix non nul ne sont pas utilisés. AI Horde et les autres services externes voient votre adresse IP.
 
-**Créer une image :** le prompt (éventuellement reformulé par un modèle texte selon les mêmes réglages de consentement), le style et le format partent au service d’image sélectionné : OVHcloud SDXL (anonyme, carré 1024×1024, 2 requêtes/minute/IP/modèle), le Space public Hugging Face FLUX.1 schnell (quota ZeroGPU anonyme partagé et variable) ou AI Horde (bénévoles). Les services voient votre adresse IP; n’y envoyez rien de confidentiel. Aucun en-tête Authorization ni clé Cloudflare, Agnes ou Hugging Face n’est utilisé. Aucun service vidéo gratuit et sans clé suffisamment fiable n’a été vérifié : Flint ne génère pas de vidéo. Les contrôles de lecture, transcription et préférences vidéo du navigateur restent disponibles.
+**Créer une image :** le prompt (éventuellement reformulé par un modèle texte selon les mêmes réglages de consentement), le style et le format partent au service d’image sélectionné : OVHcloud SDXL (anonyme, carré 1024×1024, 2 requêtes/minute/IP/modèle), le Space public Hugging Face FLUX.1 schnell (quota ZeroGPU anonyme partagé et variable) ou AI Horde (bénévoles). Les services voient votre adresse IP; n’y envoyez rien de confidentiel. Aucune clé personnelle n’est demandée, stockée ni transmise, et aucun en-tête d’authentification n’est envoyé. Aucun service vidéo gratuit et sans clé suffisamment fiable n’a été vérifié : Flint ne génère pas de vidéo. Les contrôles de lecture, transcription et préférences vidéo du navigateur restent disponibles.
 
 **Notre conseil :** ne confiez pas à Flint de mots de passe, de numéros de carte bancaire ou d'informations médicales. Flint refuse de taper un mot de passe, et l'agent vous demande votre accord avant les actions sensibles : achat, envoi d'un fichier, lecture du presse-papiers quand la tâche ne le concerne pas.
 
@@ -98,7 +98,7 @@ Si cette politique change, la nouvelle version sera publiée avec la mise à jou
 
 # Basalt Privacy Policy
 
-*Last updated: October 18, 2026. Basalt 1.5.0 and later.*
+*Last updated: October 25, 2026. Basalt 1.7.1 and later.*
 
 **In one sentence:** Basalt does not track you by default: no ads, no mandatory account and no sync of your personal data. The optional community counter, off by default, sends a random pseudonymous ID only after your explicit consent. Your browsing data stays on your PC.
 
@@ -164,7 +164,7 @@ Flint sends requests directly to free external services; Basalt does not host an
 
 **Chat:** AI Horde (aihorde.net) is the only integrated text provider. It is a low-priority volunteer network; request content may be processed or seen on volunteers’ computers. Requests are anonymized before dispatch, but do not share confidential information. Kilo Gateway is not used: a test of a free model returned an upstream error containing an OpenRouter link, and Kilo does not provide a verifiable per-request guarantee that excludes this route. OpenRouter, LLM7, and OVHcloud text models with non-zero listed prices are not used. AI Horde and other external services see your IP address.
 
-**Creating an image:** the prompt (which may first be rewritten by a text model under the same consent settings), style and format go to the selected image service: OVHcloud SDXL (anonymous, square 1024×1024, 2 requests/minute/IP/model), the public Hugging Face FLUX.1 schnell Space (shared, variable anonymous ZeroGPU quota), or AI Horde (volunteers). These services see your IP; do not send confidential content. No Authorization header or Cloudflare, Agnes, or Hugging Face key is used. No sufficiently reliable, free, keyless video-generation service has been verified, so Flint does not generate video. Browser video playback controls, transcripts, and preferences remain available.
+**Creating an image:** the prompt (which may first be rewritten by a text model under the same consent settings), style and format go to the selected image service: OVHcloud SDXL (anonymous, square 1024×1024, 2 requests/minute/IP/model), the public Hugging Face FLUX.1 schnell Space (shared, variable anonymous ZeroGPU quota), or AI Horde (volunteers). These services see your IP; do not send confidential content. No personal API key is requested, stored, or sent, and no authorization header is transmitted. No sufficiently reliable, free, keyless video-generation service has been verified, so Flint does not generate video. Browser video playback controls, transcripts, and preferences remain available.
 
 **Our advice:** don't give Flint passwords, card numbers or medical information. Flint refuses to type passwords, and the agent asks for your consent before sensitive actions: purchases, uploading a file, reading your clipboard when the task isn't about it.
 
