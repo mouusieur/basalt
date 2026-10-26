@@ -64,13 +64,13 @@ Oui : *Réglages → Recherche · Quarry*. Vous pouvez choisir un autre moteur p
 ## Flint, l'assistant IA
 
 ### Faut-il une clé, un compte ou un abonnement ?
-Pour le chat et le mode agent, non : Flint choisit automatiquement des modèles gratuits accessibles sans clé (rapide pour une question simple, plus puissant pour une grosse tâche, spécialiste pour le code). La génération d’images de base fonctionne aussi sans clé. Les clés Cloudflare/Agnes sont facultatives pour des services d’image supplémentaires; la vidéo Agnes nécessite une clé. Détails dans *Confidentialité*.
+Non. Le chat et les images n’exigent aucune clé personnelle ni compte fournisseur. Le chat utilise uniquement AI Horde, anonymement, via des ordinateurs bénévoles à faible priorité. Kilo Gateway n’est pas utilisé, car son routage amont n’est pas vérifiable au regard de l’interdiction OpenRouter. Les générations d’images utilisent OVHcloud SDXL, le Space public Hugging Face FLUX.1 schnell ou AI Horde. Aucun service vidéo keyless et sans frais suffisamment fiable n’a été vérifié : Flint ne génère pas de vidéo. Détails dans *Confidentialité*.
 
 ### Pourquoi Flint est-il parfois lent, ou dit que les modèles sont occupés ?
-Les modèles gratuits sont partagés entre beaucoup d'utilisateurs et ont des quotas. Flint passe automatiquement à un autre modèle quand l'un est saturé. Si tous le sont, réessayez une minute plus tard.
+Les services gratuits ont des quotas et peuvent être partagés ou saturés. AI Horde utilise des machines bénévoles et une file d’attente; le quota anonyme du Space Hugging Face est très limité; OVHcloud limite la route image à deux requêtes par minute et par IP/modèle. Flint passe à une autre route compatible quand c’est possible. Si elles sont toutes indisponibles, réessayez plus tard.
 
 ### Que voit Flint de mes pages ?
-Par défaut, Flint lit **le texte de la page ouverte** pour pouvoir en parler. La pastille 👁 en bas de Flint indique quelle page est partagée ; un clic dessus la désactive. Les conversations ne sont pas enregistrées. Plus de détails dans la page *Confidentialité*.
+Rien par défaut. Pour inclure une page, prévisualisez le domaine et l’extrait, puis choisissez **« Inclure une fois »**. Le contexte expire après 90 secondes. Les conversations ne sont pas enregistrées dans un compte Basalt. Plus de détails dans la page *Confidentialité*.
 
 ### Que peut faire le mode agent ?
 Agir dans un onglet à votre place : chercher, cliquer, remplir un formulaire, trouver et copier des images, résumer une vidéo avec ses moments clés, lire des tableaux, envoyer un fichier dans un site, etc. Vous voyez chaque étape et pouvez l'arrêter à tout moment. Il ne tape **jamais** de mot de passe et vous demande votre accord avant les actions sensibles (*Réglages → Flint · copilote IA → Demander avant les actions sensibles*).
@@ -154,13 +154,13 @@ Yes: *Settings → Search · Quarry*. You can choose another default search engi
 ## Flint, the AI assistant
 
 ### Do I need a key, an account or a subscription?
-For chat and agent mode, no: Flint automatically chooses free models that need no key (fast for a simple question, more powerful for a big task, a specialist for code). Basic image generation also works without a key. Cloudflare/Agnes keys are optional for extra image services; Agnes video requires a key. See *Privacy* for details.
+No. Chat and image generation need no personal key or provider account. Chat uses AI Horde only, anonymously, through low-priority volunteer computers. Kilo Gateway is not used because its upstream routing cannot be verified against the OpenRouter prohibition. Images use OVHcloud SDXL, the public Hugging Face FLUX.1 schnell Space, or AI Horde. No sufficiently reliable, free, keyless video-generation service has been verified, so Flint does not generate video. See *Privacy* for details.
 
 ### Why is Flint sometimes slow, or says models are busy?
-Free models are shared by many users and have quotas. Flint automatically switches to another model when one is overloaded. If they all are, try again a minute later.
+Free services have quotas and may be shared or overloaded. AI Horde uses volunteer machines and a queue; the anonymous Hugging Face Space quota is very limited; OVHcloud limits image generation to two requests per minute per IP/model. Flint switches to another compatible route when possible. If all routes are unavailable, try again later.
 
 ### What does Flint see of my pages?
-By default, Flint reads **the text of the open page** so it can talk about it. The 👁 chip at the bottom of Flint shows which page is shared; click it to turn this off. Conversations are not saved. More details on the *Privacy* page.
+Nothing by default. To include a page, preview its domain and excerpt, then choose **“Include once.”** The context expires after 90 seconds. Conversations are not saved in a Basalt account. More details on the *Privacy* page.
 
 ### What can agent mode do?
 Act in a tab for you: search, click, fill in a form, find and copy images, summarize a video with its key moments, read tables, upload a file to a site, and more. You see every step and can stop it at any time. It **never** types passwords and asks for your consent before sensitive actions (*Settings → Flint · AI copilot → Ask before sensitive actions*).
