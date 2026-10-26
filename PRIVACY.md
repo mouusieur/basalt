@@ -56,17 +56,17 @@ Quarry **n'a pas de serveur** : c'est votre PC qui interroge directement les sou
 Pour afficher la petite icône de chaque site, Basalt la demande à DuckDuckGo (`icons.duckduckgo.com`, pour les onglets et les résultats) et à Google (`google.com/s2/favicons`, pour l'historique, les favoris et la page d'accueil). Ces services reçoivent donc le **nom de domaine** de ces sites, jamais l'adresse complète des pages.
 
 ### 4. Flint, l'assistant IA
-Flint utilise des modèles d'IA **gratuits et sans compte**, hébergés par des services extérieurs. Basalt Labs ne reçoit et ne conserve **rien** de vos échanges.
+Flint envoie les requêtes directement à des services externes gratuits; Basalt n’héberge pas de modèle et n’enregistre pas centralement les conversations. Aucun fournisseur ne reçoit une clé personnelle : aucun champ de clé IA n’est proposé.
 
 **Ce qui est envoyé, uniquement quand vous utilisez Flint :**
-- votre message et les derniers messages de la conversation ;
-- **le texte de la page ouverte** (et le texte que vous avez sélectionné). C'est activé par défaut pour que Flint puisse « voir » ce que vous lisez. Une pastille 👁 indique la page partagée ; un clic dessus la désactive ;
-- les images que vous lui montrez ;
-- en **mode agent**, le contenu et des captures de l'onglet sur lequel il agit.
+- votre message et les derniers messages nécessaires à la réponse;
+- une image jointe ou choisie dans l’étagère;
+- le texte d’une page uniquement après aperçu du domaine/extrait et clic explicite sur **« Inclure une fois »**. Le contexte expire après 90 secondes et n’est pas activé par défaut;
+- en **mode agent**, les observations de la page et, lorsque nécessaire, une capture/une image pour l’analyse.
 
-**Où ça part :** Kilo (kilo.ai), LLM7 (llm7.io), OVHcloud AI Endpoints (France) et AI Horde (aihorde.net). Basalt choisit automatiquement le modèle selon la tâche. Ces services voient votre adresse IP. **AI Horde est un réseau de bénévoles** : vos demandes y sont traitées par des ordinateurs de particuliers.
+**Chat :** AI Horde (aihorde.net) est le seul fournisseur texte intégré. C’est un réseau de bénévoles à faible priorité; le contenu peut être traité et vu sur leurs ordinateurs. Les requêtes sont anonymisées avant dispatch, mais ne partagez aucune donnée confidentielle. Kilo Gateway n’est pas utilisé : un essai sur un modèle gratuit a renvoyé une erreur amont contenant un lien OpenRouter, et le service ne fournit pas de garantie vérifiable par requête excluant ce chemin. OpenRouter, LLM7 et les modèles texte OVHcloud à prix non nul ne sont pas utilisés. AI Horde et les autres services externes voient votre adresse IP.
 
-**Créer une image ou une vidéo :** le prompt (éventuellement reformulé par Flint avec un modèle texte), le style et le format sont envoyés au service de génération choisi. Sans configuration, les images utilisent FLUX sur un Space Hugging Face, AI Horde ou Pollinations selon la route et la disponibilité. AI Horde peut confier le prompt à des ordinateurs de bénévoles; Pollinations reçoit le prompt dans l’URL de la requête. Ces services voient votre IP. Si vous ajoutez une clé Cloudflare ou Agnes dans *Réglages → Flint*, Basalt peut aussi envoyer le prompt au fournisseur correspondant; la clé sert à authentifier la requête et n’est pas envoyée à Basalt. Elle reste dans votre profil local (chiffré si votre compte Basalt est protégé par mot de passe). **La vidéo passe par Agnes et nécessite sa clé**; sans clé, aucune demande vidéo n’est envoyée.
+**Créer une image :** le prompt (éventuellement reformulé par un modèle texte selon les mêmes réglages de consentement), le style et le format partent au service d’image sélectionné : OVHcloud SDXL (anonyme, carré 1024×1024, 2 requêtes/minute/IP/modèle), le Space public Hugging Face FLUX.1 schnell (quota ZeroGPU anonyme partagé et variable) ou AI Horde (bénévoles). Les services voient votre adresse IP; n’y envoyez rien de confidentiel. Aucun en-tête Authorization ni clé Cloudflare, Agnes ou Hugging Face n’est utilisé. Aucun service vidéo gratuit et sans clé suffisamment fiable n’a été vérifié : Flint ne génère pas de vidéo. Les contrôles de lecture, transcription et préférences vidéo du navigateur restent disponibles.
 
 **Notre conseil :** ne confiez pas à Flint de mots de passe, de numéros de carte bancaire ou d'informations médicales. Flint refuse de taper un mot de passe, et l'agent vous demande votre accord avant les actions sensibles : achat, envoi d'un fichier, lecture du presse-papiers quand la tâche ne le concerne pas.
 
@@ -154,17 +154,17 @@ Quarry **has no server**: your own PC queries the sources directly, then assembl
 To show each site's small icon, Basalt asks DuckDuckGo (`icons.duckduckgo.com`, for tabs and results) and Google (`google.com/s2/favicons`, for history, bookmarks and the home page). These services therefore receive the **domain name** of those sites, never the full page addresses.
 
 ### 4. Flint, the AI assistant
-Flint uses **free AI models that need no account**, hosted by outside services. Basalt Labs receives and keeps **nothing** of your exchanges.
+Flint sends requests directly to free external services; Basalt does not host an AI model or centrally store conversations. No provider receives a personal API key: Flint has no AI-key form.
 
 **What is sent, only when you use Flint:**
-- your message and the latest messages of the conversation;
-- **the text of the open page** (and any text you selected). This is on by default so Flint can "see" what you are reading. A 👁 chip shows the shared page; click it to turn this off;
-- the images you show it;
-- in **agent mode**, the content and screenshots of the tab it is working on.
+- your message and the latest conversation messages needed to answer;
+- an image you attach or choose from the shelf;
+- page text only after you preview the domain and excerpt and explicitly click **“Include once.”** Page context is not enabled by default and expires after 90 seconds;
+- in **Agent mode**, page observations and, when needed, a screenshot/image for analysis.
 
-**Where it goes:** Kilo (kilo.ai), LLM7 (llm7.io), OVHcloud AI Endpoints (France) and AI Horde (aihorde.net). Basalt picks the model automatically depending on the task. These services see your IP address. **AI Horde is a volunteer network**: your requests are processed on private individuals' computers.
+**Chat:** AI Horde (aihorde.net) is the only integrated text provider. It is a low-priority volunteer network; request content may be processed or seen on volunteers’ computers. Requests are anonymized before dispatch, but do not share confidential information. Kilo Gateway is not used: a test of a free model returned an upstream error containing an OpenRouter link, and Kilo does not provide a verifiable per-request guarantee that excludes this route. OpenRouter, LLM7, and OVHcloud text models with non-zero listed prices are not used. AI Horde and other external services see your IP address.
 
-**Creating an image or video:** the prompt (which Flint may first rewrite with a text model), style and format are sent to the selected generation service. Without extra setup, images use FLUX on a Hugging Face Space, AI Horde or Pollinations, depending on your route and availability. AI Horde may send the prompt to volunteer computers; Pollinations receives the prompt in the request URL. These services see your IP. If you add a Cloudflare or Agnes key in *Settings → Flint*, Basalt may also send the prompt to that provider; the key authenticates the request and is not sent to Basalt. It stays in your local profile (encrypted when your Basalt account is password-protected). **Video goes through Agnes and requires its key**; without a key, no video request is sent.
+**Creating an image:** the prompt (which may first be rewritten by a text model under the same consent settings), style and format go to the selected image service: OVHcloud SDXL (anonymous, square 1024×1024, 2 requests/minute/IP/model), the public Hugging Face FLUX.1 schnell Space (shared, variable anonymous ZeroGPU quota), or AI Horde (volunteers). These services see your IP; do not send confidential content. No Authorization header or Cloudflare, Agnes, or Hugging Face key is used. No sufficiently reliable, free, keyless video-generation service has been verified, so Flint does not generate video. Browser video playback controls, transcripts, and preferences remain available.
 
 **Our advice:** don't give Flint passwords, card numbers or medical information. Flint refuses to type passwords, and the agent asks for your consent before sensitive actions: purchases, uploading a file, reading your clipboard when the task isn't about it.
 
