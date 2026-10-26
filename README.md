@@ -8,7 +8,7 @@
 
 ### [⬇ Télécharger pour Windows / Download for Windows](https://github.com/mouusieur/basalt/releases/latest)
 
-Windows 10 · 11 (64 bits) — gratuit, sans pub, sans compte, sans clé API · *free, no ads, no account, no API key*
+**Version 1.7.1 · 26 octobre 2026** · Windows 10 · 11 (64 bits) — gratuit, sans pub, sans compte fournisseur, sans clé API personnelle · *free, no ads, no provider account, no personal API key*
 
 [Confidentialité / Privacy](PRIVACY.md) · [FAQ](FAQ.md) · [Signaler un problème / Report a problem](https://github.com/mouusieur/basalt/issues/new)
 
@@ -48,10 +48,10 @@ Basalt est un navigateur pour Windows inspiré du design Nothing (typographie à
 - **Rapide et léger** : onglets mis en veille automatiquement, mode éco pour les vieux PC.
 - **Basalt Shields** : bloqueur de publicités et de traqueurs intégré, activé par défaut.
 - **Quarry** : moteur de recherche intégré, sans serveur et sans pub. Web, images, vidéos, actualités, shopping et développeurs.
-- **Flint** : assistant IA gratuit, **sans clé ni compte**. Il résume une page, répond à vos questions, décrit une image… En **mode agent**, il agit dans un onglet pour vous : chercher, cliquer, garder et copier des images, résumer une vidéo avec ses moments clés.
+- **Flint** : assistant IA gratuit, sans clé personnelle ni compte fournisseur. Le chat utilise uniquement AI Horde, anonymement et à faible priorité sur des ordinateurs bénévoles; disponibilité et délais varient. Les images passent par OVHcloud SDXL, Hugging Face FLUX.1 schnell ou AI Horde. La route « Faibles refus » ne sélectionne que des noms AI Horde identifiés et ne bascule pas vers un modèle ordinaire si aucun candidat n’est disponible; aucune réponse n’est garantie. Aucune génération vidéo n’est proposée faute de service gratuit, fiable et sans clé vérifié.
 - **Pour les développeurs** : panneau développeur, écran partagé, onglets verticaux, palette de commandes (Ctrl K).
 - **Sécurité** : coffre de mots de passe chiffré, comptes protégés (double authentification), mises à jour signées.
-- **Extensions Basalt** : petite bibliothèque de modules vérifiés, à activer au choix; aucune installation arbitraire du Chrome Web Store. Les modules ne tournent pas en fenêtre privée; aucun VPN n’est actuellement proposé.
+- **Extensions Basalt** : deux modules de première partie, désactivés par défaut et activables au choix : Liens propres et Vitesse vidéo. Ils ne font pas de requête réseau, ne stockent pas d’historique et ne tournent pas en fenêtre privée. Liens propres retire certains paramètres de suivi, mais l’adresse initiale peut déjà avoir été envoyée au site avant le nettoyage. Aucun VPN n’est actuellement proposé.
 - **Vie privée par défaut** : aucune télémétrie sans consentement, pas de compte obligatoire ni de synchronisation cloud. Le compteur communautaire est facultatif et désactivé par défaut. [Tout est expliqué ici](PRIVACY.md).
 
 **Installation :** téléchargez `Basalt-Setup-x.y.z.exe` depuis la [dernière version](https://github.com/mouusieur/basalt/releases/latest) et lancez-le. Aucun droit administrateur n'est nécessaire. Si Windows affiche « Windows a protégé votre ordinateur », cliquez sur **Informations complémentaires → Exécuter quand même** ([pourquoi ?](FAQ.md)).
@@ -63,10 +63,10 @@ Basalt is a Windows browser inspired by Nothing's design (dot-matrix type, deep 
 - **Fast and light**: automatic tab sleeping, eco mode for older PCs.
 - **Basalt Shields**: built-in ad and tracker blocker, on by default.
 - **Quarry**: built-in search engine with no server and no ads. Web, images, videos, news, shopping and developer results.
-- **Flint**: free AI assistant, **no key and no account**. It summarizes a page, answers your questions, describes an image… In **agent mode**, it acts in a tab for you: search, click, keep and copy images, summarize a video with its key moments.
+- **Flint**: free AI assistant with no personal key or provider account. Chat uses AI Horde only, anonymously and at low priority on volunteer computers; availability and wait times vary. Images use OVHcloud SDXL, Hugging Face FLUX.1 schnell, or AI Horde. The “Low refusal” route selects only AI Horde names identified for that category and never falls back to an ordinary model if no candidate is available; no response is guaranteed. Video generation is not offered because no reliable, free, keyless service has been verified.
 - **For developers**: developer panel, split view, vertical tabs, command palette (Ctrl K).
 - **Security**: encrypted password vault, protected accounts (two-factor), signed updates.
-- **Basalt Extensions**: a small, vetted add-on library you can opt into; no arbitrary Chrome Web Store installs. Add-ons do not run in private windows; no VPN add-on is currently offered.
+- **Basalt Extensions**: two first-party modules, off by default and opt-in: Clean Links and Video Speed. They make no network requests, store no browsing history, and do not run in private windows. Clean Links removes selected tracking parameters, but the original URL may already have reached the site before cleanup. No VPN add-on is currently offered.
 - **Privacy by default**: no telemetry without consent, no mandatory account or cloud sync. The community counter is optional and off by default. [Everything is explained here](PRIVACY.md).
 
 **Install:** download `Basalt-Setup-x.y.z.exe` from the [latest release](https://github.com/mouusieur/basalt/releases/latest) and run it. No administrator rights needed. If Windows says "Windows protected your PC", click **More info → Run anyway** ([why?](FAQ.md)).
